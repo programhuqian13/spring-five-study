@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="provider" name="provider" class="org.tony.springframework.study.constructioninject.ConfigurableMessageProvider">-->
+        <!--<constructor-arg name="message" value="this is constrable inject message"/>-->
+    <!--</bean>-->
+
+    <!--
+        上面的配置可以变为如下简化版
+        使用C标签代表的为构造函数注入 如上面的这段代码：
+        constructor-arg name="message" value="this is constrable inject message"
+    -->
+    <bean id="provider" name="provider" class="org.tony.springframework.study.constructioninject.ConfigurableMessageProvider"
+        c:message="this is constrable inject message"/>
+
+    <bean id="renderer" name="renderer" class="org.tony.springframework.study.message.StanderOutMessageRenderer"
+        p:messageProvider-ref="provider"
+    />
+
+</beans>

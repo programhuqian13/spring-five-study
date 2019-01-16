@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Description 描述
+ * @Description 这样的配置类使用@Configuration进行注释，
+ * 并包含使用@Bean进行注释的方法，这些方法由Spring IoC容器直接调用以实例化bean。
+ * bean的名称将与用于创建它的方法的名称相同
  * @Version 1.0
  * @Date 2019/1/10
  * @ProjectName spring-five-study

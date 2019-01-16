@@ -8,7 +8,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * @Description 描述
  * @Version 1.0
- * @Author xuanyi@baofu.com
  * @Date 2019/1/10
  * @ProjectName spring-five-study
  * @PackageName com.tony.springframeworld.study.helloworld

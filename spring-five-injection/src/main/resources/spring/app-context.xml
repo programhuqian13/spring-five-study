@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="provider" name="provider" class="org.tony.springframework.study.message.HelloWorldMessageProvider"/>
+
+    <!--<bean id="renderer" name="renderer" class="org.tony.springframework.study.message.StanderOutMessageRenderer">-->
+        <!--<property name="messageProvider" ref="provider" />-->
+    <!--</bean>-->
+
+    <!--也可以用P标签来代替property，只需要引入xmlns:p="http://www.springframework.org/schema/p-->
+    <bean id="renderer" name="renderer" class="org.tony.springframework.study.message.StanderOutMessageRenderer"
+        p:messageProvider-ref="provider"/>
+
+</beans>
