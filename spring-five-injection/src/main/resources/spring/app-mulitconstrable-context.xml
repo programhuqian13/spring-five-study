@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="constructorConfusion" class="org.tony.springframework.study.constructioninject.mulitcontractmethod.ConstructorConfusion">
+        <constructor-arg>
+            <!--这里应该调用的Int的方法 但是使用的String 当不指定type的时候
+            调用String的构造方法 返回ConstructorConfusion(String) called
+            指定Type为Integer，打印ConstructorConfusion(Integer) called-->
+            <value type="java.lang.Integer">90</value>
+        </constructor-arg>
+    </bean>
+
+</beans>
