@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="injectSimple" name="injectSimple" class="org.tony.springframework.study.injectsimplevalue.InjectSimple"
+          p:name="tony"
+          p:age="13"
+          p:height="1.82"
+          p:programmer="false"
+          p:ageInSeconds="12312312312"
+        />
+
+    <bean id="injectSePLConfig" name="injectSePLConfig"
+          class="org.tony.springframework.study.injectvaluespel.InjectSimpleConfig"/>
+
+    <!--通过SePL的表达式进行给bean赋值-->
+    <bean id="injectSePL" name="injectSePL"
+          class="org.tony.springframework.study.injectvaluespel.InjectSimpleSpEL"
+        p:name="#{injectSePLConfig.name}"
+          p:ageInSeconds="#{injectSePLConfig.ageInSeconds}"
+          p:programmer="#{injectSePLConfig.programmer}"
+          p:age="#{injectSePLConfig.age + 1}"
+          p:height="#{injectSePLConfig.height}"
+    />
+
+</beans>
