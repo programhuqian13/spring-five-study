@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--子标签title-->
+    <bean id="childTitle" class="java.lang.String" c:_0="this is a child title"/>
+
+    <!--父标签title-->
+    <bean id="parentTitle" class="java.lang.String" c:_0="this is a parent title"/>
+
+</beans>

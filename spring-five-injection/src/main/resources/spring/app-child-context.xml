@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        首先，可以使用bean属性在子应用程序上下文中引用bean和父应用程序上下文中引用bean。
+        这使得透明地引用bean变得很容易，允许您在应用程序增长时在配置文件之间移动bean。
+        第二个有趣的地方是，您不能使用local属性来引用父ApplicationContext中的bean
+    -->
+    <bean id="song1" name="song1" class="org.tony.springframework.study.injectparent.Song"
+        p:title-ref="parentTitle"/>
+
+    <!--当前引入的title为当前配置文件中的bean-->
+    <bean id="song2" name="song2" class="org.tony.springframework.study.injectparent.Song"
+          p:title-ref="childTitle"/>
+
+    <!--当前引入的title为父配置文件中的bean，会覆盖掉当前的配置文件中的bean定义-->
+    <bean id="song3" name="song3" class="org.tony.springframework.study.injectparent.Song">
+        <property name="title">
+            <ref parent="childTitle" />
+        </property>
+    </bean>
+
+    <bean id="childTitle" class="java.lang.String" c:_0="no sush title"/>
+
+</beans>
