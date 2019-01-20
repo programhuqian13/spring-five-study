@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="singer" name="singer" class="org.tony.springframework.study.methodinject.Singer"
+          scope="prototype"/>
+
+    <bean id="abstractLookupBean" name="abstractLookupBean"
+          class="org.tony.springframework.study.methodinject.AbstractLookupDemoBean">
+        <!--通过此标签配置lookup method，告诉spring这个方法getMySinger会被singeru所覆盖，这个方法不能有参数，返回值应该为定义的bean或者所定义bean的子类-->
+        <lookup-method name="getMySinger" bean="singer"/>
+    </bean>
+
+    <bean id="standardLookupBean" name="standardLookupBean"
+          class="org.tony.springframework.study.methodinject.StandardLookupDemoBean">
+        <property name="mySinger" ref="singer"/>
+    </bean>
+
+</beans>

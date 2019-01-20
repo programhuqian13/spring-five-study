@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan base-package="org.tony.springframework.study.injectcollect"/>
+
+    <util:map id="map" map-class="java.util.HashMap">
+        <entry key="somevalue" value="this is a map one value"/>
+        <entry key="lyric" value-ref="lyricHolderAnnotation"/>
+    </util:map>
+
+    <util:properties id="props" >
+        <prop key="firstName">tony</prop>
+        <prop key="address">shanghai</prop>
+    </util:properties>
+
+    <util:set id="set" set-class="java.util.HashSet">
+        <value>tony</value>
+        <value>1358158760@qq.com</value>
+    </util:set>
+
+    <util:list id="list">
+        <value>tony</value>
+        <value>1358158760@qq.com</value>
+    </util:list>
+
+</beans>

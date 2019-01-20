@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="lyricHolder" name="lyricHolder"
+          class="org.tony.springframework.study.injectcollect.LyricHolder"/>
+
+    <bean id="collectInject" name="collectInject"
+          class="org.tony.springframework.study.injectcollect.CollectInject">
+        <property name="map">
+            <map>
+                <entry key="somevalue">
+                    <value>this is a map one calue</value>
+                </entry>
+                <entry key="somebean">
+                    <ref bean="lyricHolder"/>
+                </entry>
+            </map>
+        </property>
+        
+        <property name="props">
+            <props>
+                <prop key="username">tony</prop>
+                <prop key="address">shanghai</prop>
+            </props>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>this set collect one value</value>
+                <value>this set collect two value</value>
+            </set>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>this list collect one value</value>
+                <value>this list collect two value</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
