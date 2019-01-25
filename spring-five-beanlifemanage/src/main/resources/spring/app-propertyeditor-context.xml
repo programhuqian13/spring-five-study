@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="customEditorConfigurer"
+          class="org.springframework.beans.factory.config.CustomEditorConfigurer"
+          p:propertyEditorRegistrars-ref="propertyEditorRegistrarsList"/>
+
+    <util:list id="propertyEditorRegistrarsList">
+        <bean class="org.tony.springframework.propertyeditor.builtinpropertyeditor.PropertyEditorBean$CustomPropertyEditorRegister"/>
+    </util:list>
+
+    <util:list id="stringList">
+        <value>String member1</value>
+        <value>String member2</value>
+    </util:list>
+
+    <bean id="builtInSample"
+          class="org.tony.springframework.propertyeditor.builtinpropertyeditor.PropertyEditorBean"
+          p:character="A"
+          p:bytes="tony SH"
+          p:cls="java.lang.String"
+          p:trueOrFalse="true"
+          p:stringList-ref="stringList"
+          p:stream="test.txt"
+          p:floatValue="123.12345"
+          p:date="2019/01/25"
+          p:file="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"
+          p:locale="zh_CN"
+          p:pattern="a*b"
+          p:properties="name=tony address=shanghai"
+          p:trimString="    spring five study trimming"
+          p:url="https://spring.io"/>
+
+
+</beans>
