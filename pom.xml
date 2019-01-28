@@ -13,6 +13,7 @@
         <module>spring-five-beanfactory</module>
         <module>spring-five-injection</module>
         <module>spring-five-beanlifemanage</module>
+        <module>spring-five-javaconfig</module>
     </modules>
     <packaging>pom</packaging>
     <description>进行spring five study的parent POM文件，制定相关文件属性及其相关包的版本管理</description>
