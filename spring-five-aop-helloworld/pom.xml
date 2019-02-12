@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-five-jsr330</artifactId>
+    <artifactId>spring-five-aop-helloworld</artifactId>
 
     <dependencies>
         <dependency>
@@ -19,14 +19,15 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${springframework.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>spring-five-jsr330</finalName>
+        <finalName>spring-five-aop-helloworld</finalName>
     </build>
+
 
 </project>
