@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="singExecution"-->
+                      <!--expression="-->
+                      <!--execution(* org.tony.springframework.study.frameworkservice.usingaopnamespace..sing*(-->
+                        <!--org.tony.springframework.study.frameworkservice.usingaopnamespace.Guitar-->
+                      <!--))"/>-->
+        <!--<aop:aspect ref="advice">-->
+            <!--<aop:before method="simpleBeforeAdvice" pointcut-ref="singExecution"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <aop:config>
+        <aop:pointcut id="singExecution" expression="execution(* org.tony.springframework.study.frameworkservice.usingaopnamespace..sing*(
+                        org.tony.springframework.study.frameworkservice.usingaopnamespace.Guitar
+                      )) and args(value) and bean(target*)"/>
+
+        <aop:aspect ref="advice">
+            <aop:before method="simpleBeforeAdvice" pointcut-ref="singExecution"/>
+            <!--添加around advice-->
+            <aop:around method="simpleAroundAdvice" pointcut-ref="singExecution"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--<bean id="advice" class="org.tony.springframework.study.frameworkservice.usingaopnamespace.SimpleAdvice"/>-->
+
+    <bean id="advice" class="org.tony.springframework.study.frameworkservice.usingaopnamespace.ComplexAdvice"/>
+
+    <bean id="target" class="org.tony.springframework.study.frameworkservice.usingaopnamespace.GrammyGuitarist"/>
+
+    <bean id="documentarist" class="org.tony.springframework.study.frameworkservice.usingaopnamespace.NewDocumentarist"
+          p:grammyGuitarist-ref="target"/>
+
+</beans>

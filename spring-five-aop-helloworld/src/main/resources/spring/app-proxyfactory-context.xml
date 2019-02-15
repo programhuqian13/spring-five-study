@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="tony" class="org.tony.springframework.study.frameworkservice.usingproxyfactorybean.GrammyGuitarist"/>
+    <bean id="advice" class="org.tony.springframework.study.frameworkservice.usingproxyfactorybean.AuditAdvice"/>
+
+    <bean id="documentaristOne"
+          class="org.tony.springframework.study.frameworkservice.usingproxyfactorybean.Documentarist"
+          p:grammyGuitarist-ref="proxyOne"
+    />
+
+    <bean id="proxyOne" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:target-ref="tony"
+          p:interceptorNames-ref="interceptorAdviceNames"
+    />
+
+    <util:list id="interceptorAdviceNames">
+        <value>advice</value>
+    </util:list>
+
+    <bean id="documentaristTwo"
+          class="org.tony.springframework.study.frameworkservice.usingproxyfactorybean.Documentarist"
+          p:grammyGuitarist-ref="proxyTwo"
+    />
+
+    <bean id="proxyTwo" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:target-ref="tony"
+          p:interceptorNames-ref="interceptorAdvisorNames"
+    />
+
+    <util:list id="interceptorAdvisorNames">
+        <value>advisor</value>
+    </util:list>
+
+    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor"
+          p:advice-ref="advice">
+        <property name="pointcut">
+            <bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut"
+                  p:expression="execution(* sing*(..))"/>
+        </property>
+    </bean>
+
+</beans>

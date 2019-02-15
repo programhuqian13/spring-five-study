@@ -18,6 +18,7 @@
         <module>spring-five-env</module>
         <module>spring-five-jsr330</module>
         <module>spring-five-aop-helloworld</module>
+        <module>spring-five-aop-aspect</module>
     </modules>
     <packaging>pom</packaging>
     <description>进行spring five study的parent POM文件，制定相关文件属性及其相关包的版本管理</description>
