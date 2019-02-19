@@ -21,6 +21,10 @@
         <module>spring-five-aop-aspect</module>
         <module>spring-five-jdbc-quickstart</module>
         <module>spring-five-springjdbc-datasource</module>
+        <module>spring-five-embedded-database-mysql</module>
+        <module>spring-five-jdbc-jdbctemplate</module>
+        <module>spring-five-jdbc-nameparam</module>
+        <module>spring-five-jdbc-rowmapper</module>
     </modules>
     <packaging>pom</packaging>
     <description>进行spring five study的parent POM文件，制定相关文件属性及其相关包的版本管理</description>
