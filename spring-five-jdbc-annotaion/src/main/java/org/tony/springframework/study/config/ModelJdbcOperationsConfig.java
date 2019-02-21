@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.tony.springframework.study.dao.mapping.SelectAllSinger;
+import org.tony.springframework.study.dao.mapping.SelectSingerByFirstName;
+import org.tony.springframework.study.dao.update.SingerUpdate;
 
 import javax.sql.DataSource;
 
@@ -51,6 +54,21 @@ public class ModelJdbcOperationsConfig {
         basicDataSource.setDriverClassName(driverClassName);
         basicDataSource.setUrl(url);
         return basicDataSource;
+    }
+
+    @Bean
+    public SelectAllSinger selectAllSinger() {
+        return new SelectAllSinger(dataSource());
+    }
+
+    @Bean
+    public SelectSingerByFirstName selectSingerByFirstName() {
+        return new SelectSingerByFirstName(dataSource());
+    }
+
+    @Bean
+    public SingerUpdate singerUpdate(){
+        return new SingerUpdate(dataSource());
     }
 
 }

@@ -7,10 +7,16 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.tony.springframework.study.dao.SingerDao;
+import org.tony.springframework.study.dao.mapping.SelectAllSinger;
+import org.tony.springframework.study.dao.mapping.SelectSingerByFirstName;
+import org.tony.springframework.study.dao.update.SingerUpdate;
 import org.tony.springframework.study.entity.Singer;
 
 import javax.sql.DataSource;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description 描述
@@ -27,6 +33,15 @@ public class PlainSingerDao implements SingerDao, InitializingBean {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private SelectAllSinger selectAllSinger;
+
+    @Autowired
+    private SelectSingerByFirstName selectSingerByFirstName;
+
+    @Autowired
+    private SingerUpdate singerUpdate;
+
     @Override
     public void afterPropertiesSet() throws Exception {
         if (dataSource == null) {
@@ -37,12 +52,14 @@ public class PlainSingerDao implements SingerDao, InitializingBean {
 
     @Override
     public List<Singer> findAll() {
-        return null;
+        return selectAllSinger.execute();
     }
 
     @Override
     public List<Singer> findByFirstName(String firstName) {
-        return null;
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("firstName", firstName);
+        return selectSingerByFirstName.executeByNamedParam(paramMap);
     }
 
     @Override
@@ -72,7 +89,12 @@ public class PlainSingerDao implements SingerDao, InitializingBean {
 
     @Override
     public void update(Singer singer) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("id", singer.getId());
+        paramMap.put("firstName", singer.getFirstName());
+        paramMap.put("lastName", singer.getLastName());
+        paramMap.put("brithDate", singer.getBrithDate());
+        singerUpdate.updateByNamedParam(paramMap);
     }
 
     @Override
