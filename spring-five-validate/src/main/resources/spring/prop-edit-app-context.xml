@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:annotation-config/>
+
+    <context:property-placeholder location="classpath:prop-edit-app-prop.properties"/>
+
+
+    <bean id="customerEditorConfigurer"
+          class="org.springframework.beans.factory.config.CustomEditorConfigurer"
+          p:propertyEditorRegistrars-ref="propertyEditorRegistrarsList"/>
+
+    <util:list id="propertyEditorRegistrarsList">
+        <bean class="org.tony.springframework.study.support.DateTimeEditorRegistrar">
+            <constructor-arg value="${data.format.pattern}"/>
+        </bean>
+    </util:list>
+
+    <bean id="tony" class="org.tony.springframework.study.entity.Singer"
+        p:firstName="tonyss"
+        p:lastName="hu"
+        p:birthDate="1945-03-03"
+        p:personalSite="https://www.sina.com"/>
+
+    <bean id="propert" class="org.tony.springframework.study.entity.Singer"
+        p:firstName="${countrySinger.firstName}"
+        p:lastName="${countrySinger.lastName}"
+        p:birthDate="${countrySinger.birthDate}"
+        p:personalSite="${countrySinger.personalSite}"/>
+
+</beans>

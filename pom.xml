@@ -28,6 +28,7 @@
         <module>spring-five-jdbc-resultsetextractor</module>
         <module>spring-five-jdbc-annotaion</module>
         <module>spring-five-hibernate</module>
+        <module>spring-five-validate</module>
     </modules>
     <packaging>pom</packaging>
     <description>进行spring five study的parent POM文件，制定相关文件属性及其相关包的版本管理</description>

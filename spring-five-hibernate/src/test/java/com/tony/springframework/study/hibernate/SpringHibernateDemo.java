@@ -12,7 +12,6 @@ import java.util.List;
 /**
  * @Description 描述
  * @Version 1.0
- * @Author xuanyi@baofu.com
  * @Date 2019/3/19
  * @ProjectName spring-five-study
  * @PackageName com.tony.springframework.study.hibernate
