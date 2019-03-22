@@ -15,7 +15,16 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "singer")
+@NamedQueries({@NamedQuery(name = Singer.FIND_ALL_WITH_ALBUM,
+        query = "select distinct s from Singer s left join fetch s.albums a " +
+                "left join fetch s.instruments i"),
+        @NamedQuery(name = Singer.FIND_SINGER_BY_ID,
+        query = "select distinct s from Singer s left join fetch s.albums a " +
+                "left join fetch s.instruments i where s.id=:id")})
 public class Singer implements Serializable {
+
+    public static final String FIND_SINGER_BY_ID = "Singer.findById";
+    public static final String FIND_ALL_WITH_ALBUM = "Singer.findAllWithAlbum";
 
     private Long id;
 
@@ -30,8 +39,8 @@ public class Singer implements Serializable {
     private Set<Album> albums = new HashSet<>();
 
     @ManyToMany  //声明一个多对多的关系
-    @JoinTable(name = "singer_instrument",joinColumns = @JoinColumn(name = "SINGER_ID"),
-    inverseJoinColumns = @JoinColumn(name = "INSTRUMENT_ID"))
+    @JoinTable(name = "singer_instrument", joinColumns = @JoinColumn(name = "SINGER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "INSTRUMENT_ID"))
     public Set<Instrument> getInstruments() {
         return instruments;
     }

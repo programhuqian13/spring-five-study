@@ -10,7 +10,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.tony.springframework.study" level="debug" />
+    <logger name="org.tony.springframework.study" level="info" />
 
     <logger name="org.springframework" level="off" />
 

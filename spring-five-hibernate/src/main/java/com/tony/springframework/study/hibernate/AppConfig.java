@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -26,6 +27,7 @@ import java.util.Properties;
  */
 @Configuration
 @ComponentScan(basePackages = "com.tony.springframework.study.hibernate")
+@PropertySource(value = "classpath:spring-db.properties")
 @EnableTransactionManagement  //等价xml配置中的<tx:annotation-driven>
 public class AppConfig {
 

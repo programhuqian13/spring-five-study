@@ -17,7 +17,7 @@ public interface SingerDao {
 
     List<Singer> findAllWithAlbum();
 
-    Singer findById();
+    Singer findById(Long id);
 
     Singer save(Singer contact);
 
