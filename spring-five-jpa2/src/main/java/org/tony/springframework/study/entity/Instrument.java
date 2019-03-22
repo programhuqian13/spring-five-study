@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @Description 描述
+ * @Description getter方法上的注解可以直接写在属性字段上
  * @Version 1.0
  * @Date 2019/3/19
  * @ProjectName spring-five-study

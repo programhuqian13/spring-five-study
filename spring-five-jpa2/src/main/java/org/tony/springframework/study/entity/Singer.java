@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @Description 实体数据库中表的映射实体类
+ * @Description getter方法上的注解可以直接写在属性字段上
  * @Version 1.0
  * @Date 2019/3/14
  * @ProjectName spring-five-study
@@ -15,7 +15,22 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "singer")
+@NamedQueries({@NamedQuery(name = Singer.FIND_ALL, query = "select s from Singer s"),
+        @NamedQuery(name = Singer.Find_ALL_WITH_ALBUM, query = "select distinct s from Singer s " +
+                "left join fetch s.albums a " +
+                "left join fetch s.instruments i "),
+        @NamedQuery(name = Singer.FIND_BY_ID, query = "select distinct s from Singer s " +
+                "left join fetch s.albums a " +
+                "left join fetch s.instruments i " +
+                "where s.id=:id")})
+@SqlResultSetMapping(name = "singerResult", entities = @EntityResult(entityClass = Singer.class))
 public class Singer implements Serializable {
+
+    public static final String FIND_ALL = "Singer.findAll";
+
+    public static final String Find_ALL_WITH_ALBUM = "Singer.findAllWithAlbum";
+
+    public static final String FIND_BY_ID = "Singer.findById";
 
     private Long id;
 
@@ -30,8 +45,8 @@ public class Singer implements Serializable {
     private Set<Album> albums = new HashSet<>();
 
     @ManyToMany  //声明一个多对多的关系
-    @JoinTable(name = "singer_instrument",joinColumns = @JoinColumn(name = "SINGER_ID"),
-    inverseJoinColumns = @JoinColumn(name = "INSTRUMENT_ID"))
+    @JoinTable(name = "singer_instrument", joinColumns = @JoinColumn(name = "SINGER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "INSTRUMENT_ID"))
     public Set<Instrument> getInstruments() {
         return instruments;
     }
