@@ -129,4 +129,8 @@ public class Singer implements Serializable {
                 ", version=" + version +
                 '}';
     }
+
+    public void addAlbum(Album album) {
+        this.albums.add(album);
+    }
 }

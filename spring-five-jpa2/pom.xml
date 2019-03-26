@@ -80,6 +80,15 @@
             <version>1.4.199</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-jpamodelgen -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>5.4.2.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 
