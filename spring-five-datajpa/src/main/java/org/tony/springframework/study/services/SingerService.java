@@ -17,6 +17,6 @@ public interface SingerService {
 
     List<Singer> findByFirstName(String firstName);
 
-    List<String> findByFirstNameAndLastName(String firstName, String lastName);
+    List<Singer> findByFirstNameAndLastName(String firstName, String lastName);
 
 }
