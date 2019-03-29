@@ -33,6 +33,7 @@
         <module>spring-five-datajpa</module>
         <module>spring-five-transcationmanager-jpa</module>
         <module>spring-five-global-transactionmanager</module>
+        <module>spring-five-taskscheduling</module>
     </modules>
     <packaging>pom</packaging>
     <description>进行spring five study的parent POM文件，制定相关文件属性及其相关包的版本管理</description>
