@@ -34,6 +34,8 @@
         <module>spring-five-transcationmanager-jpa</module>
         <module>spring-five-global-transactionmanager</module>
         <module>spring-five-taskscheduling</module>
+        <module>spring-five-remoting</module>
+        <module>spring-five-remoting-common</module>
     </modules>
     <packaging>pom</packaging>
     <description>进行spring five study的parent POM文件，制定相关文件属性及其相关包的版本管理</description>
@@ -52,6 +54,11 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tony.springframework.study</groupId>
+            <artifactId>spring-five-remoting-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
