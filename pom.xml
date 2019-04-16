@@ -36,6 +36,8 @@
         <module>spring-five-taskscheduling</module>
         <module>spring-five-remoting</module>
         <module>spring-five-remoting-common</module>
+        <module>spring-five-remoting-jms</module>
+        <module>spring-five-boot-artemis-jms</module>
     </modules>
     <packaging>pom</packaging>
     <description>进行spring five study的parent POM文件，制定相关文件属性及其相关包的版本管理</description>
@@ -59,6 +61,21 @@
             <groupId>org.tony.springframework.study</groupId>
             <artifactId>spring-five-remoting-common</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tony.springframework.study</groupId>
+            <artifactId>spring-five-remoting</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
         </dependency>
     </dependencies>
 

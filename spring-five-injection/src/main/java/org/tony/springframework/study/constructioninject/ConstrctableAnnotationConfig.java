@@ -2,9 +2,8 @@ package org.tony.springframework.study.constructioninject;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.tony.springframework.study.constructioninject.config.ConstractableConfig;
-import org.tony.springframework.study.message.MessageRenderer;
+import org.tony.springframework.study.jms.message.MessageRenderer;
 
 /**
  * @Description 构造函数注入xml配置读取

@@ -15,7 +15,7 @@ public interface SingerService {
 
     List<Singer> findAll();
 
-    List<String> findByFirstName(String firstName);
+    List<Singer> findByFirstName(String firstName);
 
     Singer findById(Long id);
 

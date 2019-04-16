@@ -2,8 +2,7 @@ package org.tony.springframework.study.setterinjection;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tony.springframework.study.message.MessageRenderer;
+import org.tony.springframework.study.jms.message.MessageRenderer;
 import org.tony.springframework.study.setterinjection.config.SetterInjectAnnotationConfig;
 
 /**

@@ -1,7 +1,7 @@
 package org.tony.springframework.study.setterinjection;
 
 import org.springframework.stereotype.Service;
-import org.tony.springframework.study.message.MessageProvider;
+import org.tony.springframework.study.jms.message.MessageProvider;
 
 /**
  * @Description 通过注解的方式加载bean

@@ -5,14 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="provider" name="provider" class="org.tony.springframework.study.message.HelloWorldMessageProvider"/>
+    <bean id="provider" name="provider" class="org.tony.springframework.study.jms.message.HelloWorldMessageProvider"/>
 
-    <!--<bean id="renderer" name="renderer" class="org.tony.springframework.study.message.StanderOutMessageRenderer">-->
+    <!--<bean id="renderer" name="renderer" claorg.tony.springframework.study.jms.messagesage.StanderOutMessageRenderer">-->
         <!--<property name="messageProvider" ref="provider" />-->
     <!--</bean>-->
 
     <!--也可以用P标签来代替property，只需要引入xmlns:p="http://www.springframework.org/schema/p-->
-    <bean id="renderer" name="renderer" class="org.tony.springframework.study.message.StanderOutMessageRenderer"
+    <bean id="renderer" name="renderer" class="org.tony.springframework.study.jms.message.StanderOutMessageRenderer"
         p:messageProvider-ref="provider"/>
 
 </beans>

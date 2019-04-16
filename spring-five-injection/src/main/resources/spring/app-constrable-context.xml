@@ -18,7 +18,7 @@
     <bean id="provider" name="provider" class="org.tony.springframework.study.constructioninject.ConfigurableMessageProvider"
         c:message="this is constrable inject message"/>
 
-    <bean id="renderer" name="renderer" class="org.tony.springframework.study.message.StanderOutMessageRenderer"
+    <bean id="renderer" name="renderer" class="org.tony.springframework.study.jms.message.StanderOutMessageRenderer"
         p:messageProvider-ref="provider"
     />
 

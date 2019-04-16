@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface SingerDao extends CrudRepository<Singer, Long> {
 
-    List<String> findByFirstName(String firstName);
+    List<Singer> findByFirstName(String firstName);
 
 }

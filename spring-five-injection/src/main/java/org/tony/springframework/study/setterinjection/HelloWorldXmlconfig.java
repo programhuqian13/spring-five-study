@@ -2,7 +2,7 @@ package org.tony.springframework.study.setterinjection;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.tony.springframework.study.message.MessageRenderer;
+import org.tony.springframework.study.jms.message.MessageRenderer;
 
 /**
  * @Description 通过xml配置文件的方式加载bean

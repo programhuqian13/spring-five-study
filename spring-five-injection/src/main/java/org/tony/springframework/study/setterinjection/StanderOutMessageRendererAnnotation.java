@@ -2,8 +2,8 @@ package org.tony.springframework.study.setterinjection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.tony.springframework.study.message.MessageProvider;
-import org.tony.springframework.study.message.MessageRenderer;
+import org.tony.springframework.study.jms.message.MessageProvider;
+import org.tony.springframework.study.jms.message.MessageRenderer;
 
 /**
  * @Description 描述

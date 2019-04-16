@@ -3,7 +3,7 @@ package org.tony.springframework.study.constructioninject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.tony.springframework.study.message.MessageProvider;
+import org.tony.springframework.study.jms.message.MessageProvider;
 
 /**
  * @Description 已注解的方式

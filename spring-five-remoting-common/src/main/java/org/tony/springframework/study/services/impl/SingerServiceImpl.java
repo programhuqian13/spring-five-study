@@ -36,7 +36,7 @@ public class SingerServiceImpl implements SingerService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<String> findByFirstName(String firstName) {
+    public List<Singer> findByFirstName(String firstName) {
         return singerDao.findByFirstName(firstName);
     }
 
